@@ -7,6 +7,6 @@
     $stmt -> bindParam(":param", $_REQUEST["nip"]);
 
     if($stmt->execute()){
-        echo "BERHASIL MENGHAPUS";
+        echo "sukses";
     }
 ?>
