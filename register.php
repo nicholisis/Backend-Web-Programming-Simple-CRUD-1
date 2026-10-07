@@ -72,7 +72,7 @@
                     nip: vNip,
                     nama: vNama,
                     alamat: vAlamat,
-                    dept: vDept,
+                    departemen: vDept,
                     cabang: vCabang,
                 }, function(hasil){
                     if(hasil == "sukses"){
