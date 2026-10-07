@@ -1,7 +1,7 @@
 <?php
     require_once("koneksi.php");
 
-    $kueri = "select * from departemen where nip=:param";
+    $kueri = "select * from pegawai where nip=:param";
 
     $stmt = $conn -> prepare($kueri);
     $stmt -> bindParam(":param", $_REQUEST["nip"]);
