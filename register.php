@@ -62,9 +62,13 @@
                 vNama = $("#edNama").val();
                 vAlamat = $("#edAlamat").val();
                 vDept = $("#cbDepartemen").val();
-                vCabamg = $("#cbCabang").val();
+                vCabang = $("#cbCabang").val();
 
-                $.post("simpan.php", {
+                mode = $(this).val(); // ambil value tombol: "Ubah" atau "Tambah"
+                target = (mode == "Ubah") ? "update.php" : "simpan.php"; // kalau Ubah maka ke file update, kalo tambah ke simpan
+
+                // kirim semua data ke halaman file sesuai target
+                $.post(target, {
                     nip: vNip,
                     nama: vNama,
                     alamat: vAlamat,
@@ -73,6 +77,15 @@
                 }, function(hasil){
                     if(hasil == "sukses"){
                         reloadData();
+
+                        // kosongkan input abis berhasil
+                        $("#btnTambah").val("Tambah");
+                        $("#edNIP").val("");
+                        $("#edNama").val("");
+                        $("#edAlamat").val("");
+                        $("#errNIP").html("");     
+                    } else {
+                        alert("Gagal proses data: " + hasil);
                     }
                 });
             });
