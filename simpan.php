@@ -11,6 +11,6 @@
     $stmt -> bindParam(":p5", $_REQUEST["cabang"]);
     
     if($stmt->execute()){
-        echo "BERHASIL MENAMBAHKAN";
+        echo "sukses";
     }
 ?>
