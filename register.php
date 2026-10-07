@@ -33,16 +33,18 @@
             // load awal dropdown departemen
             $.post("departemen.php", function(hasil){
                 $("#cbDepartemen").html(hasil);
+
+                $("#cbDepartemen").trigger("change"); // supaya opsi cabang langsung muncul tanpa perlu merubah departemen dulu
             });
 
             // load awal tabel pegawai
             reloadData();
 
             // kalau departemen berubah, filter cabang
-            $("cbDepartemen").change(function(){
+            $("#cbDepartemen").change(function(){
                 kode = $(this).val();
                 $.post("cabang.php", {parameternya: kode}, function(hasil){
-                    $("cbCabang").html(hasil);
+                    $("#cbCabang").html(hasil);
                 });
             });
 
@@ -55,7 +57,7 @@
             });
 
             // simpan data saat tombol tambah dipencet
-            $("btnTambah").click(function(){
+            $("#btnTambah").click(function(){
                 vNip = $("#edNIP").val();
                 vNama = $("#edNama").val();
                 vAlamat = $("#edAlamat").val();
