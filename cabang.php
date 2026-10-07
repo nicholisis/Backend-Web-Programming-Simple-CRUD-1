@@ -1,7 +1,7 @@
 <?php
     require_once("koneksi.php");
 
-    $kode = $_REQUEST("parameternya");
+    $kode = $_REQUEST["parameternya"];
 
     $kueri = "select cabang_kode, cabang_nama from cabang where dept_kode = :param";
 
